@@ -1,0 +1,73 @@
+body {
+  background: rgb(254, 228, 230);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+header {
+  text-align: center;
+  color: white;
+}
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+
+.colorwrap {
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  height: 900px;
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+li {
+  color: white;
+  list-style: none;
+  font-weight: 200;
+}
+
+.cloudsolid {
+  color: white;
+  font-size: 90px;
+}
+.location {
+  font-size: 30px;
+  text-align: center;
+ color: rgb(69,141,157)
+
+}
+
+button {
+border: none;
+border-radius: 4px;
+
+}
+
+.temperature {
+  color: white;
+  font-size: 68px;
+}
+
+.units {
+  color: white;
+  font-size: 23px;
+  position: absolute;
+}
+
+.col-4 {
+  color: white;
+  line-height: 50px;
+}
+
+h5 {
+  color: white;
+  font-weight: 300;
+}
+
+#celsius-link {
+  color: blue;
+}
+
+#fahrenheit-link {
+  color: blue;
+}
