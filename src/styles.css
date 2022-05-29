@@ -23,7 +23,7 @@ h1 {
 li {
   color: white;
   list-style: none;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .cloudsolid {
@@ -70,4 +70,8 @@ h5 {
 
 #fahrenheit-link {
   color: blue;
+}
+footer {
+  color: white;
+  font-weight: 200;
 }
