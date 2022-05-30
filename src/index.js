@@ -61,7 +61,7 @@ navigator.geolocation.getCurrentPosition(showPosition);
 
 let button = document.querySelector("button");
 button = addEventListener("click", getCurrentPosition);
-return false;
+// false;
 
 
 let dateElement = document.querySelector("#date");
