@@ -36,8 +36,9 @@ li {
  color: rgb(69,141,157)
 
 }
-small {
+ins {
    color: blue; 
+   font-weight: 200;
 }
 
 
@@ -77,5 +78,5 @@ h5 {
 }
 footer {
   color: white;
-  font-weight: 100;
+  font-weight: 200;
 }

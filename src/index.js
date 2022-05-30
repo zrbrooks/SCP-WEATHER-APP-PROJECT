@@ -25,6 +25,7 @@ function formatDate(date) {
 
 
 function displayWeatherCondition(response) {
+
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -35,6 +36,9 @@ function displayWeatherCondition(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+    document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
+      document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+
 }
 
 function search(event) {
@@ -45,13 +49,14 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeatherCondition);
+
 }
 
 function showPosition(position) {
 let button = document.querySelector("button");
 button.innerHTML = `${position.coords.latitude} and ${position.coords.longitude}`;
 
-// return false;
+
 }
 
 function getCurrentPosition(position) {
@@ -61,7 +66,7 @@ navigator.geolocation.getCurrentPosition(showPosition);
 
 let button = document.querySelector("button");
 button = addEventListener("click", getCurrentPosition);
-// false;
+
 
 
 let dateElement = document.querySelector("#date");
