@@ -47,6 +47,32 @@ function search(event) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+function showPosition(position) {
+let button = document.querySelector("button");
+button.innerHTML = `${position.coords.latitude} and ${position.coords.longitude}`;
+
+// return false;
+}
+
+function getCurrentPosition(position) {
+
+}
+navigator.geolocation.getCurrentPosition(showPosition);
+
+let button = document.querySelector("button");
+button = addEventListener("click", getCurrentPosition);
+return false;
+
+
+let dateElement = document.querySelector("#date");
+let currentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
+
+let row = document.querySelector("#search-row");
+row.addEventListener("submit", search);
+
+//Bonus
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -57,14 +83,6 @@ function convertToCelsius(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = 19;
 }
-let dateElement = document.querySelector("#date");
-let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
-
-let row = document.querySelector("#search-row");
-row.addEventListener("submit", search);
-
-//Bonus
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
