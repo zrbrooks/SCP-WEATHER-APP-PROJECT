@@ -36,10 +36,6 @@ li {
  color: rgb(69,141,157)
 
 }
-ins {
-   color: blue; 
-   font-weight: 200;
-}
 
 
 button {
@@ -78,5 +74,9 @@ h5 {
 }
 footer {
   color: white;
-  font-weight: 200;
+font-weight: 100;
+}
+strong {
+  color: blue;
+
 }
