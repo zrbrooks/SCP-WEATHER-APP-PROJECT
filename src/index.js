@@ -41,6 +41,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
   document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    celsiusTemperature = response.data.main.temp;
 }
 
 
@@ -65,26 +66,34 @@ navigator.geolocation.getCurrentPosition(showPosition);
 let button = document.querySelector("button");
 button = addEventListener("click", getCurrentPosition);
 
-
+ 
 
 let row = document.querySelector("#search-row");
 row.addEventListener("submit", search);
 
-//Bonus
+// Celsius Fahrenheit
 
 function convertToFahrenheit(event) {
   event.preventDefault();
+celsiusLink.classList.remove("active")
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
+let fahrenheitTemperature = (celsiusTemperature * 9) /5 +32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+
+let celsiusTemperature = null;
+
 function convertToCelsius(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
+// outside the function so this is a global variable 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);

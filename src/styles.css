@@ -68,6 +68,22 @@ h5 {
 #celsius-link {
   color: blue;
 }
+#celsius-link.active {
+  color: white;
+  cursor: default;
+}
+
+#celsius-link.active:hover {
+ text-decoration: none;
+}
+
+#fahrenheit-link.active {
+  color: white;
+  cursor: default;
+}
+#fahrenheit-link.active:hover {
+ text-decoration: none;
+}
 
 #fahrenheit-link {
   color: blue;
