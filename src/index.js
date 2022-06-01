@@ -49,7 +49,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#sunset").innerHTML = response.data.sys.sunset; 
 
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.innerHTML = 
+  iconElement.innerHTML = `http://openweathermap.org/img/wn/04d@2x.png`
 
     celsiusTemperature = response.data.main.temp;
 }
