@@ -25,8 +25,13 @@ if (hours < 10) {
 
 
 function displayWeatherCondition(response) {
+  console.log(response.data);
+
+
+
   document.querySelector("#city").innerHTML = response.data.name;
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
 
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -35,12 +40,17 @@ function displayWeatherCondition(response) {
     response.data.wind.speed
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 
   document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
-  document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+
+  document.querySelector("#sunset").innerHTML = response.data.sys.sunset; 
+
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.innerHTML = 
+
     celsiusTemperature = response.data.main.temp;
 }
 
@@ -55,16 +65,16 @@ function search(event) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-function showPosition(position) {
-  let button = document.querySelector("button");
-  button.innerHTML = `${position.coords.latitude} and ${position.coords.longitude}`;
-}
+// function showPosition(position) {
+//   let button = document.querySelector("button");
+//   button.innerHTML = `${position.coords.latitude} and ${position.coords.longitude}`;
+// }
 
-function getCurrentPosition(position) {}
-navigator.geolocation.getCurrentPosition(showPosition);
+// function getCurrentPosition(position) {}
+// navigator.geolocation.getCurrentPosition(showPosition);
 
-let button = document.querySelector("button");
-button = addEventListener("click", getCurrentPosition);
+// let button = document.querySelector("button");
+// button = addEventListener("click", getCurrentPosition);
 
  
 
@@ -97,3 +107,6 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 // outside the function so this is a global variable 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+
+
