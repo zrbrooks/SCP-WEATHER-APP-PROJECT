@@ -43,11 +43,13 @@ function changeIcon(code) {
   if (code === "clear sky") {
     icon = `<i class="fa-solid fa-sun sunsolid"></i>`;
   } else if (code === "few clouds") {
-    icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+    icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "scattered clouds") {
     icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+  } else if (code === "overcast clouds") {
+    icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "broken clouds") {
-    icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+    icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "shower rain") {
     icon = `<i class="fa-solid fa-cloud-sun-rain cloudsunrain"></i>`;
   } else if (code === "rain") {
