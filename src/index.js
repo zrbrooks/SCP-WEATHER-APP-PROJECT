@@ -23,6 +23,45 @@ if (hours < 10) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
+function changeIcon(code) {
+  let icon = "";
+
+  if (code === "clear sky") {
+    icon = `<i class="fa-solid fa-sun sunsolid"></i>`;
+  } else if (code === "few clouds") {
+    icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+  } else if (code === "scattered clouds") {
+    icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+  } else if (code === "broken clouds") {
+    icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+  } else if (code === "shower rain") {
+    icon = `<i class="fa-solid fa-cloud-sun-rain cloudsunrain"></i>`;
+  } else if (code === "rain") {
+    icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
+  } else if (code === "thunderstorm") {
+    icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
+  } else if (code === "snow") {
+    icon = `<i class="fa-solid fa-snow"></i>`;
+  } else if (code === "mist") {
+    icon = `<i class="fa-solid fa-wind windsolid"></i>`;
+  }
+
+  return icon;
+}
 
 function displayWeatherCondition(response) {
   console.log(response.data);
@@ -44,13 +83,13 @@ function displayWeatherCondition(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 
-  document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
+  document.querySelector("#sunrise").innerHTML = formatTime(response.data.sys.sunrise * 1000);
 
-  document.querySelector("#sunset").innerHTML = response.data.sys.sunset; 
+  document.querySelector("#sunset").innerHTML = formatTime(response.data.sys.sunset * 1000); 
 
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.innerHTML = `http://openweathermap.org/img/wn/04d@2x.png`
-
+  iconElement.innerHTML = changeIcon(response.data.weather[0].description);
+ 
     celsiusTemperature = response.data.main.temp;
 }
 
