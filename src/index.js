@@ -45,7 +45,7 @@ function changeIcon(code) {
   } else if (code === "few clouds") {
     icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "scattered clouds") {
-    icon = `<i class="fa-solid fa-cloud-sun cloudsun"></i>`;
+    icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "overcast clouds") {
     icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "broken clouds") {
@@ -59,6 +59,12 @@ function changeIcon(code) {
   } else if (code === "snow") {
     icon = `<i class="fa-solid fa-snow"></i>`;
   } else if (code === "mist") {
+    icon = `<i class="fa-solid fa-wind windsolid"></i>`;
+  } else if (code === "moderate rain") {
+    icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
+  } else if (code === "light rain") {
+    icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
+  } else if (code === "squalls") {
     icon = `<i class="fa-solid fa-wind windsolid"></i>`;
   }
 
