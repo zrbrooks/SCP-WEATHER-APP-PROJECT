@@ -71,7 +71,8 @@ function changeIcon(code) {
   return icon;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
 
@@ -113,6 +114,15 @@ forecastElement.innerHTML = forecastHTML;
 
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+   let apiKey = "4b11a1c1ee80c24e876c726259f16ded";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  
+  axios.get(apiUrl).then(displayForecast);
+}
+
+
 function displayWeatherCondition(response) {
   console.log(response.data);
 
@@ -142,10 +152,13 @@ function displayWeatherCondition(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.innerHTML = changeIcon(response.data.weather[0].description);
 
+ console.log(response.data);
  
-
+getForecast(response.data.coord);
   celsiusTemperature = response.data.main.temp;
 }
+
+
 
 function search(event) {
   event.preventDefault();
@@ -199,3 +212,4 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 // outside the function so this is a global variable
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
