@@ -1,9 +1,9 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-if (hours < 10) {
+  if (hours < 10) {
     hours = `0${hours}`;
-}
+  }
   let minutes = date.getMinutes();
 
   if (minutes < 10) {
@@ -71,10 +71,50 @@ function changeIcon(code) {
   return icon;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+
+let forecastHTML = "";
+let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+days.forEach(function(day) {
+forecastHTML =
+  forecastHTML +
+  `     <div class="row">
+       
+           <div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-sun sunsolid"></i></div>
+         <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+        <div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-cloud-sun-rain cloudsunrain"></i></div>
+        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+        <div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-cloud-sun cloudsun"></i></div>
+        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+        <div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-cloud-rain cloudrain"></i></div>
+        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+        <div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>
+</div>
+        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+        <div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-wind windsolid"></i></div>
+        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+<div class="col-4 day">${day}</div>
+        <div class="col-4"><i class="fa-solid fa-cloud cloudsolid"></i></div>
+        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+      </div>`;
+});
+
+
+       forecastHTML = forecastHTML+ `</div>`;
+forecastElement.innerHTML = forecastHTML;
+
+}
+
 function displayWeatherCondition(response) {
   console.log(response.data);
-
-
 
   document.querySelector("#city").innerHTML = response.data.name;
   let dateElement = document.querySelector("#date");
@@ -91,16 +131,21 @@ function displayWeatherCondition(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 
-  document.querySelector("#sunrise").innerHTML = formatTime(response.data.sys.sunrise * 1000);
+  document.querySelector("#sunrise").innerHTML = formatTime(
+    response.data.sys.sunrise * 1000
+  );
 
-  document.querySelector("#sunset").innerHTML = formatTime(response.data.sys.sunset * 1000); 
+  document.querySelector("#sunset").innerHTML = formatTime(
+    response.data.sys.sunset * 1000
+  );
 
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.innerHTML = changeIcon(response.data.weather[0].description);
- 
-    celsiusTemperature = response.data.main.temp;
-}
 
+ 
+
+  celsiusTemperature = response.data.main.temp;
+}
 
 function search(event) {
   event.preventDefault();
@@ -123,8 +168,6 @@ function search(event) {
 // let button = document.querySelector("button");
 // button = addEventListener("click", getCurrentPosition);
 
- 
-
 let row = document.querySelector("#search-row");
 row.addEventListener("submit", search);
 
@@ -132,14 +175,16 @@ row.addEventListener("submit", search);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-celsiusLink.classList.remove("active")
+  celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
-let fahrenheitTemperature = (celsiusTemperature * 9) /5 +32;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let celsiusTemperature = null;
+
+//  displayForecast();
 
 function convertToCelsius(event) {
   event.preventDefault();
@@ -151,9 +196,6 @@ function convertToCelsius(event) {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
-// outside the function so this is a global variable 
+// outside the function so this is a global variable
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
-
-
-
