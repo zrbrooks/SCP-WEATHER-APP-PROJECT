@@ -72,19 +72,24 @@ function changeIcon(code) {
 }
 function displayForecast(response) {
   let forecastDays = response.data.daily;
+  // console.log(response.data.daily.length)
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
   let days = [
-    "Saturday",
-    "Sunday",
+   
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
+ "Saturday",
+    "Sunday",
+
   ];
-  forecastDays.forEach(function (forecastDay) {
+  forecastDays.forEach(function (forecastDay, index) {
+    if (index < 6) {
     forecastHTML =
       forecastHTML +
       `     <div class="row">
@@ -101,6 +106,7 @@ function displayForecast(response) {
         forecastDay.temp.min
       )}°</span></div>
       </div>`;
+         }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -119,7 +125,7 @@ function getForecast(coordinates) {
 
 
 function displayWeatherCondition(response) {
-  console.log(response.data);
+
 
   document.querySelector("#city").innerHTML = response.data.name;
   let dateElement = document.querySelector("#date");
