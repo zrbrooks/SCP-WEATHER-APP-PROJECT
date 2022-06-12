@@ -70,49 +70,44 @@ function changeIcon(code) {
 
   return icon;
 }
-
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecastDays = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
-
-let forecastHTML = "";
-let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-days.forEach(function(day) {
-forecastHTML =
-  forecastHTML +
-  `     <div class="row">
+  let forecastHTML = "";
+  let days = [
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+  ];
+  forecastDays.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
+      `     <div class="row">
        
-           <div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-sun sunsolid"></i></div>
-         <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
-        <div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-cloud-sun-rain cloudsunrain"></i></div>
-        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
-        <div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-cloud-sun cloudsun"></i></div>
-        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
-        <div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-cloud-rain cloudrain"></i></div>
-        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
-        <div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>
-</div>
-        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
-        <div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-wind windsolid"></i></div>
-        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
-<div class="col-4 day">${day}</div>
-        <div class="col-4"><i class="fa-solid fa-cloud cloudsolid"></i></div>
-        <div class="col-4"><span class="max">H32°</span><span class="min"> L12°</span></div>
+           <div class="col-4 day">${
+             days[new Date(forecastDay.dt * 1000).getDay()]
+           }</div>
+        <div class="col-4">${changeIcon(
+          forecastDay.weather[0].description
+        )}</div>
+         <div class="col-4"><span class="max">H${Math.round(
+           forecastDay.temp.max
+         )}º</span><span class="min"> L${Math.round(
+        forecastDay.temp.min
+      )}°</span></div>
       </div>`;
-});
+  });
 
-
-       forecastHTML = forecastHTML+ `</div>`;
-forecastElement.innerHTML = forecastHTML;
-
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
+
+
 
 function getForecast(coordinates) {
   console.log(coordinates);
