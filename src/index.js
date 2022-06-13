@@ -116,7 +116,7 @@ function displayForecast(response) {
 
 
 function getForecast(coordinates) {
-  console.log(coordinates);
+ 
    let apiKey = "4b11a1c1ee80c24e876c726259f16ded";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   
@@ -152,7 +152,7 @@ function displayWeatherCondition(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.innerHTML = changeIcon(response.data.weather[0].description);
 
-//  console.log(response.data.daily);
+
  
 getForecast(response.data.coord);
   celsiusTemperature = response.data.main.temp;
@@ -161,6 +161,7 @@ getForecast(response.data.coord);
 function searchCity(city){
 let apiKey = "4b11a1c1ee80c24e876c726259f16ded";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
 axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -173,19 +174,18 @@ function handleSubmit(event) {
 }
 
 
-// function showPosition(position) {
-//   let apiKey = "4b11a1c1ee80c24e876c726259f16ded";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-//   axios.get(apiUrl).then(displayWeatherCondition);
-// }
+function showPosition(position) {
+  let apiKey = "4b11a1c1ee80c24e876c726259f16ded";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
 
-// function getCurrentPosition(event) {
-//   event.preventDefault();
-// navigator.geolocation.getCurrentPosition(showPosition);
-// }
-// let button = document.querySelector("#currentloc");
-// button = addEventListener("click", getCurrentPosition);
-
+function getCurrentPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+let button = document.querySelector("#current-location");
+button.addEventListener("click", getCurrentPosition);
 
 let row = document.querySelector("#search-row");
 row.addEventListener("submit", handleSubmit);

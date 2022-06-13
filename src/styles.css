@@ -32,14 +32,14 @@ li {
 }
 
 .location {
-  font-size: 20px;
-  text-align: center;
+  font-size: 30px;
  color: rgb(69,141,157)
 
 }
 
 
 button {
+ padding-top: 4px;
 border: none;
 border-radius: 4px;
 
