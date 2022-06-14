@@ -52,10 +52,20 @@ function changeIcon(code) {
     icon = `<i class="fa-solid fa-cloud cloudsolid"></i>`;
   } else if (code === "shower rain") {
     icon = `<i class="fa-solid fa-cloud-sun-rain cloudsunrain"></i>`;
+  } else if (code === "light intensity drizzle") {
+    icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
+  } else if (code === "heavy intensity rain") {
+    icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
   } else if (code === "rain") {
     icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
+  } else if (code === "haze") {
+    icon = `<i class="fa-solid fa-smog"></i>`;
   } else if (code === "thunderstorm") {
     icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
+  } else if (code === "thunderstorm with rain") {
+    icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
+  } else if (code === "thunderstorm with light rain") {
+    icon = `<i class="fa-solid fa-cloud-bolt"></i>`;
   } else if (code === "snow") {
     icon = `<i class="fa-solid fa-snow"></i>`;
   } else if (code === "mist") {
