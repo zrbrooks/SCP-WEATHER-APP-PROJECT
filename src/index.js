@@ -79,7 +79,7 @@ function changeIcon(code) {
   } else if (code === "very heavy rain") {
     icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
   }
-  return icon;
+  return icon; 
 }
 function displayForecast(response) {
   let forecastDays = response.data.daily;
