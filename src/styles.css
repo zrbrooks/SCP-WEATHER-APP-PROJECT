@@ -104,7 +104,8 @@ h5 {
 footer {
   color: white;
 font-weight: 100;
-font-size: 12px;
+font-size: 14px;
+margin-left: 68px;
 }
 strong {
   color: blue;

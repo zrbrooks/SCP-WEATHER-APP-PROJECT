@@ -76,8 +76,9 @@ function changeIcon(code) {
     icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
   } else if (code === "squalls") {
     icon = `<i class="fa-solid fa-wind windsolid"></i>`;
+  } else if (code === "very heavy rain") {
+    icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
   }
-
   return icon;
 }
 function displayForecast(response) {
@@ -171,7 +172,7 @@ getForecast(response.data.coord);
 function searchCity(city){
 let apiKey = "4b11a1c1ee80c24e876c726259f16ded";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
 axios.get(apiUrl).then(displayWeatherCondition);
 }
 
