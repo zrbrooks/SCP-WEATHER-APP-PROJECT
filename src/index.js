@@ -58,13 +58,20 @@ function changeIcon(code) {
     icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
   } else if (code === "rain") {
     icon = `<i class="fa-solid fa-cloud-rain cloudrain"></i>`;
-  } else if (code === "haze") {
+  } 
+
+  else if (code === "haze") {
+    icon = `<i class="fa-solid fa-smog"></i>`;
+  } 
+   else if (code === "smoke") {
     icon = `<i class="fa-solid fa-smog"></i>`;
   } else if (code === "thunderstorm") {
     icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
   } else if (code === "thunderstorm with rain") {
     icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
   } else if (code === "thunderstorm with light rain") {
+    icon = `<i class="fa-solid fa-cloud-bolt"></i>`;
+  } else if (code === "light thunderstorm") {
     icon = `<i class="fa-solid fa-cloud-bolt"></i>`;
   } else if (code === "snow") {
     icon = `<i class="fa-solid fa-snow"></i>`;
@@ -78,7 +85,8 @@ function changeIcon(code) {
     icon = `<i class="fa-solid fa-wind windsolid"></i>`;
   } else if (code === "very heavy rain") {
     icon = `<i class="fa-solid fa-cloud-showers-heavy cloudshowersheavy"></i>`;
-  }
+  } 
+
   return icon; 
 }
 function displayForecast(response) {
