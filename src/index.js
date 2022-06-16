@@ -91,7 +91,7 @@ function changeIcon(code) {
 }
 function displayForecast(response) {
   let forecastDays = response.data.daily;
-  // console.log(response.data.daily.length)
+
 
   let forecastElement = document.querySelector("#forecast");
 
